@@ -88,6 +88,4 @@ Homestead.json
 /storage/logs/laravel.log
 /storage/*.log
 bootstrap/cache/config.php
-.env
-docker-compose.yml
-Dockerfile
+/database
