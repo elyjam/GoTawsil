@@ -11,7 +11,7 @@ pipeline {
         stage('Build with Maven') {
             steps {
                 script {
-                    def mvnHome = tool name: 'Maven 3..4', type: 'hudson.tasks.Maven$MavenInstallation'
+                    def mvnHome = tool name: 'Maven 3.9.4', type: 'hudson.tasks.Maven$MavenInstallation'
                     sh "${mvnHome}/bin/mvn clean package"  // Replace with your Maven command
                 }
             }
