@@ -73,7 +73,7 @@ _old/
 .modgit/
 .modman/
 pkginfo
-nohup.out
+#nohup.out
 Homestead.yaml
 npm-debug.log
 yarn-error.log
