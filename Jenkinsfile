@@ -8,11 +8,20 @@ pipeline {
             }
         }
 
+        stage('Build with Maven') {
+            steps {
+                script {
+                    def mvnHome = tool name: 'Maven 3..4', type: 'hudson.tasks.Maven$MavenInstallation'
+                    sh "${mvnHome}/bin/mvn clean package"  // Replace with your Maven command
+                }
+            }
+        }
+
         stage('Build and Test') {
             steps {
                 script {
                     def imageName = 'laravelapp'
-                    
+
                     // Build Docker image
                     sh "docker build -t ${imageName} ."
 
@@ -26,10 +35,10 @@ pipeline {
             steps {
                 script {
                     def imageName = 'laravelapp'
-                    
+
                     // Push Docker image to a registry (e.g., Docker Hub, AWS ECR)
                     sh "docker push ${imageName}"
-                    
+
                     // Deploy using Docker Compose
                     sh "docker-compose up -d"
                 }
