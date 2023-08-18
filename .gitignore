@@ -89,4 +89,3 @@ Homestead.json
 /storage/*.log
 bootstrap/cache/config.php
 /database
-/env
